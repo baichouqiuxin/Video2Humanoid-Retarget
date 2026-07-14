@@ -1,0 +1,11 @@
+extractors:
+  gemx:
+    description: GEM-X SOMA human motion extraction backend.
+    outputs:
+      - hpe_results.pt
+      - SOMA body parameters
+      - optional rendered mesh videos
+  future:
+    - duomo
+    - wham
+    - hmr

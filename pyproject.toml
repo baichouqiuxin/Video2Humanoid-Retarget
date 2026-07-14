@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video2humanoid"
+version = "0.1.0"
+description = "A modular framework for video-based humanoid motion reconstruction, motion retargeting and robot simulation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Video2Humanoid-Retarget Contributors" }]
+dependencies = ["numpy", "scipy", "PyYAML", "tqdm", "trimesh"]
+
+[project.scripts]
+video2humanoid = "video2humanoid.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["video2humanoid*"]

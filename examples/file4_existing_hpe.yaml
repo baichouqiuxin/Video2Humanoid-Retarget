@@ -1,0 +1,3 @@
+extractor:
+  name: gemx
+  existing_hpe_results: /home/anon/GEM_outputs/file4/hpe_results.pt

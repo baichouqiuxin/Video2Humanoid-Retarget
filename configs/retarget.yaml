@@ -1,0 +1,11 @@
+retargeters:
+  soma_g1:
+    description: SOMA BVH to Unitree G1 via NVIDIA soma-retargeter and Newton IK.
+    outputs:
+      - SOMA BVH
+      - raw and contact-ground-aligned Unitree G1 CSV
+      - robot.npy
+      - ground alignment report
+  future:
+    - gmr
+    - custom_robot_ik

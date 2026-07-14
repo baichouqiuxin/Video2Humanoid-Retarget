@@ -1,0 +1,11 @@
+simulators:
+  isaac_kinematic:
+    description: Isaac Sim USD replay generated from Newton FK without gravity.
+    outputs:
+      - animated USD
+      - optional screenshots
+      - optional replay video
+  future:
+    - mujoco
+    - pybullet
+    - genesis

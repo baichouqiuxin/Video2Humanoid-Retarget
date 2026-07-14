@@ -1,0 +1,56 @@
+project:
+  name: Video2Humanoid-Retarget
+
+paths:
+  output_root: outputs
+  temp_root: /tmp/video2humanoid
+
+extractor:
+  name: gemx
+  gemx_root: ${GEMX_ROOT}
+  conda_env: gemx
+  static_cam: false
+  retarget_in_gemx: false
+  # Optional: set this to reuse an existing hpe_results.pt instead of running GEM-X.
+  existing_hpe_results:
+
+retargeter:
+  name: soma_g1
+  conda_env: retarget-soma-ik
+  tools_root: tools
+  soma_retargeter_root: ${SOMA_RETARGETER_ROOT}
+  reference_bvh: ${SOMA_RETARGETER_ROOT}/soma_retargeter/configs/soma/soma_zero_frame0.bvh
+  source_facing_direction: Mujoco
+  fps: 30
+  robot_model: unitree_g1
+
+ground_alignment:
+  enabled: true
+  foot_bodies:
+    left: left_ankle_roll_link
+    right: right_ankle_roll_link
+  contact_height_m: 0.06
+  max_vertical_speed_mps: 0.5
+  max_horizontal_speed_mps: 0.8
+  contact_gap_frames: 2
+  min_contact_frames: 2
+  max_down_step_m: 0.03
+  sole_clearance_m: 0.0
+  ground_scope: feet
+
+simulator:
+  name: isaac_kinematic
+  conda_env: retarget-soma-ik
+  tools_root: tools
+  isaac_root: ${ISAAC_ROOT}
+  fps: 30
+  replay_mode: kinematic_newton_fk
+
+assets:
+  smpl_root:
+  soma_assets: ${SOMA_ASSETS_ROOT}
+  robot_assets_cache: ${NEWTON_ASSETS_CACHE}
+
+runtime:
+  cuda: auto
+  log_level: INFO

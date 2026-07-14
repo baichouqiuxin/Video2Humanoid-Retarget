@@ -1,0 +1,23 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Video2Humanoid Pipeline">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="video" value="Video" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" vertex="1" parent="1"><mxGeometry x="300" y="40" width="220" height="60" as="geometry" /></mxCell>
+        <mxCell id="extract" value="Motion Extraction\nGEM-X / DuoMo / WHAM / HMR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1"><mxGeometry x="260" y="150" width="300" height="80" as="geometry" /></mxCell>
+        <mxCell id="human" value="Human Motion\nSMPL / SOMA / joints / mesh" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1"><mxGeometry x="260" y="280" width="300" height="80" as="geometry" /></mxCell>
+        <mxCell id="retarget" value="Motion Retargeting\nSOMA-X / soma-retargeter / Newton / GMR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1"><mxGeometry x="240" y="410" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="robot" value="Robot Motion\nBVH / CSV / .motion / robot.npy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1"><mxGeometry x="260" y="540" width="300" height="80" as="geometry" /></mxCell>
+        <mxCell id="sim" value="Simulation / Replay\nIsaac / MuJoCo / PyBullet / Genesis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1"><mxGeometry x="240" y="670" width="340" height="80" as="geometry" /></mxCell>
+        <mxCell id="viz" value="Visualization\nUSD / video / screenshots / statistics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1"><mxGeometry x="260" y="800" width="300" height="80" as="geometry" /></mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="video" target="extract" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="extract" target="human" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="human" target="retarget" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="retarget" target="robot" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="robot" target="sim" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="sim" target="viz" style="endArrow=block;html=1;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
