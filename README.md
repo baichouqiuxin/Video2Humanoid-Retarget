@@ -4,17 +4,27 @@
 
 Video2Humanoid-Retarget turns a monocular video into reusable humanoid robot motion artifacts. The current implementation uses GEM-X for human motion extraction, NVIDIA soma-retargeter/Newton for Unitree G1 retargeting, and Isaac Sim for kinematic replay visualization.
 
-## Results Preview
+## Pipeline Preview
 
-These representative frames are taken from local `dance1` and `dance3` runs. Each consistency view places the GEM-X SMPL reconstruction beside three Isaac Sim G1 views; the telemetry overlay reports the inferred foot contact state and head/foot height over time.
+The images below follow one representative `walkgirl` run from input video to Isaac Sim replay. They are not mockups: each is a frame from the local run used to validate this pipeline.
+
+| 1. Input video | 2. GEM-X 2D keypoints |
+| --- | --- |
+| <img src="docs/images/walkgirl_input_video.png" alt="Walkgirl source video frame" width="100%"> | <img src="docs/images/walkgirl_gemx_keypoints.png" alt="GEM-X 2D keypoints over the walkgirl input" width="100%"> |
+| Monocular source motion. | Per-frame keypoints anchor the human reconstruction. |
+
+| 3. GEM-X SMPL reconstruction | 4. G1 retargeting and ground alignment |
+| --- | --- |
+| <img src="docs/images/walkgirl_gemx_smpl.png" alt="GEM-X in-camera SMPL reconstruction for walkgirl" width="100%"> | <img src="docs/images/walkgirl_g1_ground_aligned.png" alt="Ground-aligned Unitree G1 Isaac replay for walkgirl" width="100%"> |
+| The recovered SMPL body is aligned with the source camera. | SOMA-to-G1 joint motion is replayed in Isaac; the overlay reports left/right contact and head/foot Z heights. |
+
+## Motion Preview
+
+Short loops make the temporal behavior visible: the left GIF shows the GEM-X keypoint tracking input, while the right GIF shows the final G1 kinematic replay after contact-aware ground alignment.
 
 <p align="center">
-  <img src="docs/images/dance1_smpl_isaac_consistency.png" width="49%" alt="Dance1 GEM-X SMPL reconstruction with three Isaac Sim G1 consistency views">
-  <img src="docs/images/dance3_smpl_isaac_consistency.png" width="49%" alt="Dance3 GEM-X SMPL reconstruction with three Isaac Sim G1 consistency views">
-</p>
-
-<p align="center">
-  <img src="docs/images/dance1_ground_aligned_telemetry.png" width="64%" alt="Ground-aligned G1 replay showing inferred left-foot contact and Z-height telemetry">
+  <img src="docs/images/walkgirl_gemx_keypoints.gif" width="49%" alt="Animated GEM-X keypoint tracking for walkgirl">
+  <img src="docs/images/walkgirl_g1_ground_aligned.gif" width="49%" alt="Animated ground-aligned Unitree G1 replay for walkgirl">
 </p>
 
 ## Features
