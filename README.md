@@ -4,6 +4,19 @@
 
 Video2Humanoid-Retarget turns a monocular video into reusable humanoid robot motion artifacts. The current implementation uses GEM-X for human motion extraction, NVIDIA soma-retargeter/Newton for Unitree G1 retargeting, and Isaac Sim for kinematic replay visualization.
 
+## Results Preview
+
+These representative frames are taken from local `dance1` and `dance3` runs. Each consistency view places the GEM-X SMPL reconstruction beside three Isaac Sim G1 views; the telemetry overlay reports the inferred foot contact state and head/foot height over time.
+
+<p align="center">
+  <img src="docs/images/dance1_smpl_isaac_consistency.png" width="49%" alt="Dance1 GEM-X SMPL reconstruction with three Isaac Sim G1 consistency views">
+  <img src="docs/images/dance3_smpl_isaac_consistency.png" width="49%" alt="Dance3 GEM-X SMPL reconstruction with three Isaac Sim G1 consistency views">
+</p>
+
+<p align="center">
+  <img src="docs/images/dance1_ground_aligned_telemetry.png" width="64%" alt="Ground-aligned G1 replay showing inferred left-foot contact and Z-height telemetry">
+</p>
+
 ## Features
 
 - Modular extractor / retargeter / simulator interfaces.
